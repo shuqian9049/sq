@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+    <style>
+        .wrap{
+            width: 600px;
+            margin: 50px auto;
+        }
+        .wrap button{
+            margin-left: 30px;
+        }
+        .bottom{
+            margin-left: 240px;
+        }
+        td{
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <button type="button" class="btn btn-info" value="0">企业新闻</button>
+        <button type="button" class="btn btn-info" value="1">行业新闻</button>
+    </div>
+    <div class="bottom"></div>
+</body>
+<script>
+    $(function(){
+        $('button').click(function(){
+            var ss=$(this).val();
+            $.ajax({
+                url:'http://localhost:3000/list',
+                type:'get',
+                dataType:'json',
+                success:function (e) {
+                    var str = "";
+                    for (i in e) {
+                        if(ss==e[i].uid){
+                            str += "<tr><td>"+ e[i].uid + "</td><td>" + e[i].title + "</td><td>" + e[i].name + "</td><td>"+e[i].time+"</td><td>"+ e[i].detail + "</td></tr>"
+                        }
+                    }
+                    $('.bottom').html(str)
+                }
+            })
+        })
+
+    })
+</script>
+</html>

@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Summernote</title>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Help</a></li>
+            </ul>
+            <form class="navbar-form navbar-right">
+                <input type="text" class="form-control" placeholder="Search...">
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Reports</a></li>
+                <li><a href="#">Analytics</a></li>
+                <li><a href="#">Export</a></li>
+            </ul>
+            <ul class="nav nav-sidebar">
+                <li><a href="">Nav item</a></li>
+                <li><a href="">Nav item again</a></li>
+                <li><a href="">One more nav</a></li>
+                <li><a href="">Another nav item</a></li>
+                <li><a href="">More navigation</a></li>
+            </ul>
+            <ul class="nav nav-sidebar">
+                <li><a href="">Nav item again</a></li>
+                <li><a href="">One more nav</a></li>
+                <li><a href="">Another nav item</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">Dashboard</h1>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">新增</button>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="control-label">标题</label>
+                                    <input type="text" class="tit form-control" id="recipient-name" >
+                                </div>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="control-label">作者</label>
+                                    <input type="text" class="zuo form-control" id="recipient-name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="control-label">详情:</label>
+                                    <div id="summernote"></div>
+                                </div>
+                                <select name="" id="sele">
+                                    <option value="0">企业新闻</option>
+                                    <option value="1">行业新闻</option>
+                                </select>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" id="sq" class="btn btn-primary">Send message</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="sub-header">Section title</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>uid</th>
+                        <th>title</th>
+                        <th>name</th>
+                        <th>time</th>
+                        <th>detail</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content" style="padding: 40px;">
+                <div class="form-group">
+                    <label for="recipient-name" class="control-label">标题</label>
+                    <input type="text" class="bt form-control" id="recipient-name" >
+                </div>
+                <div class="form-group">
+                    <label for="recipient-name" class="control-label">作者</label>
+                    <input type="text" class="zz form-control" id="recipient-name">
+                </div>
+                <div class="form-group">
+                    <label for="message-text" class="control-label">详情:</label>
+                    <div class="summernote"></div>
+                </div>
+                <button type="button" class="sq btn btn-default">Submit</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {//添加
+        $('#summernote').summernote();
+        $("#sq").click(function () {
+            var tit=$('.tit').val();
+            var zuo=$('.zuo').val();
+            var sele=$('#sele').val();
+            $.ajax({
+                url:'http://localhost:3000/insert',
+                type:'post',
+                data:{
+                    detail:$('#summernote').summernote('code'),
+                    tit:tit,
+                    zuo:zuo,
+                    sele:sele
+                },
+                success:function (e) {
+
+                }
+            })
+        })
+        $.ajax({//显示
+            url:'http://localhost:3000/list',
+            type:'get',
+            dataType:'json',
+            success:function (e) {
+                var str = "";
+                for (i in e) {
+                    str += "<tr><td>"+ e[i].uid + "</td><td>" + e[i].title + "</td><td>" + e[i].name + "</td><td>" + e[i].time + "</td><td>" + e[i].detail + "</td><td class='tj glyphicon glyphicon-edit' data-toggle='modal' data-target='.bs-example-modal-lg' data-cc="+e[i].id+"></td><td class='delete glyphicon glyphicon-trash' data-id=" + e[i].id + "></td></tr>"
+                }
+                $('tbody').html(str)
+                $('.delete').click(function(){
+                    var uid=$(this).attr('data-id');
+                    var _this=$(this);
+
+                    $.ajax({//删除
+                        url:'http://localhost:3000/del',
+                        type:'post',
+                        data:{uid:uid},
+                        dataType:'json',
+                        success:function(e){
+                            _this.parent().remove();
+                        }
+
+                    })
+                })
+                $('.summernote').summernote();
+                $('.tj').click(function(){
+                    var id=$(this).attr('data-cc');
+                    $('.sq').attr('data-cc',id)
+                })
+                $('.sq').click(function(){
+                    var b=$('.summernote').summernote('code');
+                    var cc=$(this).attr('data-cc');
+                    var bt=$('.bt').val();
+                    var zz=$('.zz').val();
+
+                    $.ajax({//修改
+                        url:'http://localhost:3000/update',
+                        type:'post',
+                        data:{
+                            b:b,
+                            cc:cc,
+                            bt:bt,
+                            zz:zz
+                        },
+                        dataType:'json',
+                        success:function(e){
+                            console.log(e)
+                        }
+                    })
+                })
+            }
+
+        })
+
+
+    })
+</script>
+
+</body>
+</html>
